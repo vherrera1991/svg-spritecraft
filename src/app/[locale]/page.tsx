@@ -3,14 +3,24 @@ import { IconBrandGithub } from "@tabler/icons-react";
 
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcherButton } from "@/components/ui/theme-switcher-button.component";
+import { LanguageSwitcher } from "@/components/ui/language-switcher.component";
 
-export default function Home() {
+export default async function Home() {
+  /* const mainMenuItems = [
+    {
+      title: "",
+      desc: "",
+    },
+  ]; */
+
   return (
     <>
       <header>
         <div className="flex items-center justify-between p-6">
           <div>Logo</div>
           <nav className="flex gap-2">
+            <LanguageSwitcher />
+
             <ThemeSwitcherButton />
 
             <Button asChild variant="ghost" size="default">
@@ -25,7 +35,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main></main>
+      <main>{/* TODO: Implement welcome page main menu */}</main>
     </>
   );
 }
