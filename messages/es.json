@@ -1,1 +1,12 @@
-{}
+{
+  "HomePage": {
+    "menu_create_from_scratch_label": "Crear desde cero",
+    "menu_create_from_scratch_desc": "Inicia un nuevo proyecto en blanco",
+    "menu_open_from_file_label": "Abrir desde un archivo",
+    "menu_open_from_file_desc": "Cargar un sprite SVG existente desde tu dispositivo",
+    "menu_open_from_url_label": "Abrir desde una URL",
+    "menu_open_from_url_desc": "Cargar un sprite SVG desde la web",
+    "menu_open_from_clipboard_label": "Pegar desde el portapapeles",
+    "menu_open_from_clipboard_desc": "Pega el código de un sprite SVG para modificarlo"
+  }
+}
