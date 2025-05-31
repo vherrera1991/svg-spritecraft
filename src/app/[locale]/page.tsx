@@ -1,5 +1,11 @@
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { IconBrandGithub } from "@tabler/icons-react";
+
+import { useSvgStore } from "@/lib/store";
 
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcherButton } from "@/components/ui/theme-switcher-button.component";
@@ -7,12 +13,21 @@ import { LanguageSwitcher } from "@/components/ui/language-switcher.component";
 
 import { MainMenuOptGroup } from "@/components/nav/main-menu-opt-group.component";
 
-export default async function Home() {
+export default function Home() {
+  const router = useRouter();
+  const svgContent = useSvgStore((state) => state.svgContent);
+
+  useEffect(() => {
+    if (svgContent) {
+      router.replace("/editor");
+    }
+  }, [svgContent, router]);
+
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center p-6">
       <header>
         <div className="flex items-center justify-between">
-          <div>Logo</div>
+          <div>SVG SpriteCraft</div>
           <nav className="flex gap-2">
             <LanguageSwitcher />
 
@@ -31,7 +46,6 @@ export default async function Home() {
       </header>
 
       <main className="row-start-2 flex flex-col items-center gap-8">
-        {/* TODO: Implement welcome page main menu */}
         <MainMenuOptGroup />
       </main>
 
