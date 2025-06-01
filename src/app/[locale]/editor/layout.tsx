@@ -1,3 +1,9 @@
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/nav/app-sidebar.component";
+import { AppTopbar } from "@/components/nav/app-topbar.component";
+
+import { cn } from "@/lib/utils";
+
 export default function Layout({
   children,
   sidebar,
@@ -6,19 +12,17 @@ export default function Layout({
   sidebar?: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen">
-      {/* Left sidebar */}
-      <div className="bg-muted/30 w-80 border-r">
-        <div className="border-b p-4">
-          <div className="mb-4 flex items-center justify-between">
-            <h2 className="text-lg font-semibold">SVG SpriteCraft</h2>
-          </div>
+    <SidebarProvider>
+      <AppSidebar>{sidebar}</AppSidebar>
+      <div className="flex w-full flex-col md:p-4 md:px-2 md:pb-2">
+        <div className="mb-2 flex items-center justify-between px-4">
+          <div></div>
+          <AppTopbar />
         </div>
-        <div className="p-4">{sidebar}</div>
+        <SidebarInset className={cn("rounded-xl shadow-sm")}>
+          {children}
+        </SidebarInset>
       </div>
-
-      {/* Main content area */}
-      <div className="flex flex-1 flex-col">{children}</div>
-    </div>
+    </SidebarProvider>
   );
 }
